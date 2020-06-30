@@ -1,0 +1,27 @@
+{
+  "name": "api-clean",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "db": "node src/dbConfig.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@devmastery/pipe": "0.0.8",
+    "axios": "^0.19.2",
+    "cuid": "^2.1.8",
+    "express": "^4.17.1",
+    "ip-regex": "^4.1.0",
+    "is-valid-email": "0.0.5",
+    "mongodb": "^3.5.9",
+    "sanitize-html": "^1.27.0"
+  },
+  "devDependencies": {
+    "eslint-plugin-import": "^2.22.0",
+    "nodemon": "^2.0.4"
+  }
+}
