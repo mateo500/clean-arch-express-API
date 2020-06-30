@@ -4,7 +4,6 @@ const ipRegex = require('ip-regex')
 const sanitizeHtml = require('sanitize-html')
 const buildMakeComment = require('./comment')
 const buildMakeSource = require('./source')
-const getIp = require('address')
 
 
 const makeSource = buildMakeSource({ isValidIp })

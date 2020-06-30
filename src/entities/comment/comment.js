@@ -5,7 +5,7 @@ const buildMakeComment = ({ Id, md5, sanitize, makeSource }) => {
       id = Id.makeId(),
       source,
       modifiedOn = Date.now().toString(),
-      postId,
+      postId = Id.makeId(),
       published = true,
       text
     } = {}) {
