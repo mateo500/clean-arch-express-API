@@ -6,7 +6,7 @@ const isQuestionable = require('../../is-questionable/index')
 
 const handleModeration = makeHandleModeration({
     isQuestionable,
-    initiateReview: async () => {} // TODO: Make real initiate review function.
+    initiateReview: async () => {} 
   })
 
 
