@@ -4,6 +4,7 @@ const ipRegex = require('ip-regex')
 const sanitizeHtml = require('sanitize-html')
 const buildMakeComment = require('./comment')
 const buildMakeSource = require('./source')
+const getIp = require('address')
 
 
 const makeSource = buildMakeSource({ isValidIp })
@@ -13,6 +14,7 @@ const makeComment = buildMakeComment({ Id, md5, sanitize, makeSource })
 function isValidIp(ip){
     return ipRegex({exact: true}).test(ip)
 }
+
 
 function md5(text){
     return crypto

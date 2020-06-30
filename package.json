@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@devmastery/pipe": "0.0.8",
+    "address": "^1.1.2",
     "axios": "^0.19.2",
     "cuid": "^2.1.8",
     "express": "^4.17.1",

@@ -1,10 +1,10 @@
 const buildMakeComment = ({ Id, md5, sanitize, makeSource }) => {
     return function makeComment ({
       author,
-      createdOn = Date.now(),
+      createdOn = Date.now().toString(),
       id = Id.makeId(),
       source,
-      modifiedOn = Date.now(),
+      modifiedOn = Date.now().toString(),
       postId,
       published = true,
       text
