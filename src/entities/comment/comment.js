@@ -6,8 +6,7 @@ const buildMakeComment = ({ Id, md5, sanitize, makeSource }) => {
       source,
       modifiedOn = Date.now(),
       postId,
-      published = false,
-      replyToId,
+      published = true,
       text
     } = {}) {
       if (!Id.isValidId(id)) {
@@ -19,17 +18,14 @@ const buildMakeComment = ({ Id, md5, sanitize, makeSource }) => {
       if (author.length < 2) {
         throw new Error("Comment author's name must be longer than 2 characters.")
       }
-      if (!postId) {
+      /* if (!postId) {
         throw new Error('Comment must contain a postId.')
-      }
+      } */
       if (!text || text.length < 1) {
         throw new Error('Comment must include at least one character of text.')
       }
       if (!source) {
         throw new Error('Comment must have a source.')
-      }
-      if (replyToId && !Id.isValidId(replyToId)) {
-        throw new Error('If supplied. Comment must contain a valid replyToId.')
       }
   
       let sanitizedText = sanitize(text).trim()
@@ -48,7 +44,6 @@ const buildMakeComment = ({ Id, md5, sanitize, makeSource }) => {
         getId: () => id,
         getModifiedOn: () => modifiedOn,
         getPostId: () => postId,
-        getReplyToId: () => replyToId,
         getSource: () => validSource,
         getText: () => sanitizedText,
         isDeleted: () => sanitizedText === deletedText,
@@ -70,8 +65,7 @@ const buildMakeComment = ({ Id, md5, sanitize, makeSource }) => {
           sanitizedText +
             published +
             (author || '') +
-            (postId || '') +
-            (replyToId || '')
+            (postId || '') 
         )
       }
     }

@@ -1,5 +1,5 @@
 const crypto = require('crypto')
-const id = require('../../id')
+const Id = require('../../id')
 const ipRegex = require('ip-regex')
 const sanitizeHtml = require('sanitize-html')
 const buildMakeComment = require('./comment')
@@ -7,7 +7,7 @@ const buildMakeSource = require('./source')
 
 
 const makeSource = buildMakeSource({ isValidIp })
-const makeComment = buildMakeComment({ id, md5, sanitize, makeSource })
+const makeComment = buildMakeComment({ Id, md5, sanitize, makeSource })
 
 
 function isValidIp(ip){

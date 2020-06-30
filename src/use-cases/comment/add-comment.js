@@ -1,32 +1,28 @@
 
 const makeComment = require('../../entities/comment/index')
 
-function makeAddComment ({ commentsDb, handleModeration }) {
+function makeAddComment ({ commentsDb }) {
   return async function addComment (commentInfo) {
     const comment = makeComment(commentInfo)
     const exists = await commentsDb.findByHash({ hash: comment.getHash() })
     if (exists) {
       return exists
     }
-
-    const moderated = await handleModeration({ comment })
-    const commentSource = moderated.getSource()
     
     return commentsDb.insert({
-      author: moderated.getAuthor(),
-      createdOn: moderated.getCreatedOn(),
-      hash: moderated.getHash(),
-      id: moderated.getId(),
-      modifiedOn: moderated.getModifiedOn(),
-      postId: moderated.getPostId(),
-      published: moderated.isPublished(),
-      replyToId: moderated.getReplyToId(),
+      author: comment.getAuthor(),
+      createdOn: comment.getCreatedOn(),
+      hash: comment.getHash(),
+      id: comment.getId(),
+      modifiedOn: comment.getModifiedOn(),
+      postId: comment.getPostId(),
+      published: comment.isPublished(),
       source: {
-        ip: commentSource.getIp(),
-        browser: commentSource.getBrowser(),
-        referrer: commentSource.getReferrer()
+        ip: comment.getSource().getIp(),
+        browser: comment.getSource().getBrowser(),
+        referrer: comment.getSource().getReferrer()
       },
-      text: moderated.getText()
+      text: comment.getText()
     })
   }
 }
