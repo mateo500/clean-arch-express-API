@@ -18,9 +18,9 @@ const buildMakeComment = ({ Id, md5, sanitize, makeSource }) => {
       if (author.length < 2) {
         throw new Error("Comment author's name must be longer than 2 characters.")
       }
-      /* if (!postId) {
+      if (!postId) {
         throw new Error('Comment must contain a postId.')
-      } */
+      }
       if (!text || text.length < 1) {
         throw new Error('Comment must include at least one character of text.')
       }
