@@ -1,5 +1,5 @@
  function makeListComments ({ commentsDb }) {
-    return async function listComments ({ postId } = {}) {
+    return async function listComments () {
       /* if (!postId) {
         throw new Error('You must supply a post id.')
       } */

@@ -9,7 +9,6 @@ const expressCallback = function makeExpressCallback (controller){
         path: req.path,
         headers: {
           'Content-Type': req.get('Content-Type'),
-          Referer: req.get('referer'),
           'User-Agent': req.get('User-Agent')
         }
       }
@@ -18,7 +17,6 @@ const expressCallback = function makeExpressCallback (controller){
           if (httpResponse.headers) {
             res.set(httpResponse.headers)
           }
-          res.type('json')
           res.status(httpResponse.statusCode).send(httpResponse.body)
         })
         .catch(e => res.status(500).send({ error: 'An unkown error occurred.', errorMessage: e}))

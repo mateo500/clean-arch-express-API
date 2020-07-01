@@ -1,5 +1,5 @@
 const buildMakeSource = ({ isValidIp }) => {
-    return function makeSource ({ ip, browser, referrer } = {}) {
+    return function makeSource ({ ip, browser } = {}) {
       if (!ip) {
         throw new Error('Comment source must contain an IP.')
       }
@@ -8,8 +8,7 @@ const buildMakeSource = ({ isValidIp }) => {
       }
       return Object.freeze({
         getIp: () => ip,
-        getBrowser: () => browser,
-        getReferrer: () => referrer
+        getBrowser: () => browser
       })
     }
   }

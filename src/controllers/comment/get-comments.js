@@ -1,16 +1,14 @@
 function makeGetComments ({ listComments }) {
-    return async function getComments (httpRequest) {
+    return async function getComments () {
       const headers = {
         'Content-Type': 'application/json'
       }
       try {
-        const postComments = await listComments({
-          postId: httpRequest.query.postId
-        })
+        const postedComments = await listComments()
         return {
           headers,
           statusCode: 200,
-          body: postComments
+          body: postedComments
         }
       } catch (e) {
         console.log(e)

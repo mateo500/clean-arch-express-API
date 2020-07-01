@@ -6,7 +6,6 @@ const makeCommentsDb = ({ makeDb }) => {
       findByHash,
       findById,
       findByPostId,
-      findReplies,
       insert,
       remove,
       update
@@ -42,17 +41,7 @@ const makeCommentsDb = ({ makeDb }) => {
         ...found
       }))
     }
-    async function findReplies ({ commentId, publishedOnly = true }) {
-      const db = await makeDb()
-      const query = publishedOnly
-        ? { published: true, replyToId: commentId }
-        : { replyToId: commentId }
-      const result = await db.collection('comments').find(query)
-      return (await result.toArray()).map(({ _id: id, ...found }) => ({
-        id,
-        ...found
-      }))
-    }
+    
     async function insert ({ id: _id = Id.makeId(), ...commentInfo }) {
       const db = await makeDb()
       const result = await db

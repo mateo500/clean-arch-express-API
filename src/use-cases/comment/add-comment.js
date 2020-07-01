@@ -19,8 +19,7 @@ function makeAddComment ({ commentsDb }) {
       published: comment.isPublished(),
       source: {
         ip: comment.getSource().getIp(),
-        browser: comment.getSource().getBrowser(),
-        referrer: comment.getSource().getReferrer()
+        browser: comment.getSource().getBrowser()
       },
       text: comment.getText()
     })
