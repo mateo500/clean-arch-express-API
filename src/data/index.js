@@ -2,7 +2,7 @@ const makeCommentsDb = require('./comments-db')
 const mongodb = require('mongodb')
 
 const MongoClient = mongodb.MongoClient
-const url = 'mongodb+srv://admin:12345@cluster0-0tdjq.mongodb.net/test?retryWrites=true&w=majority'
+const url = 'xxxxx'
 const client = new MongoClient(url, {useNewUrlParser: true, useUnifiedTopology: true })
 
 const makeDb = async() => {
