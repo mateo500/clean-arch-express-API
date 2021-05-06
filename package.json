@@ -18,7 +18,7 @@
     "ip-regex": "^4.1.0",
     "is-valid-email": "0.0.5",
     "mongodb": "^3.5.9",
-    "sanitize-html": "^1.27.0"
+    "sanitize-html": "^2.3.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
